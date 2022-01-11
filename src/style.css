@@ -46,6 +46,12 @@
 	text-align: left;
 }
 
+.content_link {
+	color: #555;
+	font-size: 15px;
+	text-align: left;
+}
+
 .collapsible_group {
 	margin: auto;
 	width: 25%;
@@ -60,6 +66,13 @@ body {
 h1, p, ul {
 	color:  white;
 	text-align: center;
+}
+
+h2 {
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
 }
 
 a {

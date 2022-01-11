@@ -1,2 +1,2 @@
 @echo off
-scp src\*.html evrhel@vergil.u.washington.edu:~/public_html
+scp src\* evrhel@vergil.u.washington.edu:~/public_html
