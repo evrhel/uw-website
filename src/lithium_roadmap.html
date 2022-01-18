@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<title>Lithium Roadmap</title>
+	</head>
+	<body>
+		<div>
+			<h1>Lithium Roadmap</h1>
+			<p><b>Last Lithium Feature Update:</b> 1/18/2022</p>
+		</div>
+
+		<div class="collapsible_group">
+			<button type="button" class="collapsible">Completed</button>
+			<div class="content_div">
+				<p class="content"><i>These features are still being updated and improved, but have the most significant functionality in the engine.</i></p>
+				<ul class="content_list">
+					<li><b>Filesystem Manager</b> - <i>Abstracts filesystem operations and handles loading some file formats.</i></li>
+					<li><b>Dynamic Shader Loader</b> - <i>Links related vertex and fragment shaders together and binds them to input from material files.</i></li>
+					<li><b>Event-Driven GUI System</b> - <i>Interface set up in a way that mimics Java AWT.</i></li>
+					<li><b>C++ Scripting System</b> - <i>Developers may write C++ scripts to define the internal behavior of their application.</i></li>
+					<li><b>HDR and Post-Processing Support</b> - <i>Supports High Dynamic Range (HDR) rendering and post-processing effects such as Gaussian Blurs, Bloom and FXAA.</i></li>
+					<li><b>Material System</b> - <i>Handles loading material files which define a set of parameters to tell the engine how to draw an object. Supports albedo, specular, normal, ambient oucclusion and reflection mapping.</i></li>
+					<li><b>Shadow Mapping</b> - <i>Renders shadow maps which are used in shaders to create shadows in a scene.</i></li>
+					<li><b>Terrain Rendering</b> - <i>Rendered using a heightmap for vertex positions and splatmap for texture blending.</i></li>
+					<li><b>Particle Systems</b> - <i>Uses instanced rendering to be able to draw a large number of objects with little performance impact.</i></li>
+					<li><b>Authoring Tools</b> - <i>A set of tools for developers to create assets for their game outside of code.</i></li>
+				</ul>
+			</div>
+
+			<button type="button" class="collapsible">In-Progress</button>
+			<div class="content_div">
+				<p class="content"><i>These features are currently being implemented and do not have full functionality.</i></p>
+				<ul class="content_list">
+					<li><b>Map System</b> - <i>Files to be loaded by the engine which define both static and dynamic world geometry outside of C++ code. Maps are compiled from a source file into a binary format containing metadata, entity data, static world geometry, and custom resources.</i></li>
+					<li><b>Animation System</b> - <i>A system to automatically handle transformations of objects within a scene.</i></li>
+					<li><b>SSAO</b> - <i>Screen-Space Ambient Occlusion post-processing effect</i></li>
+				</ul>
+			</div>
+
+			<button type="button" class="collapsible">Future</button>
+			<div class="content_div">
+				<p class="content"><i>These features I want to eventually add sometime in the future in no particular order.</i></p>
+				<ul class="content_list">
+					<li><b>Texture Animations</b></li>
+					<li><b>PBR Rendering</b></li>
+					<li><b>Map Editor</b></li>
+					<li><b>Planar Reflections</b></li>
+					<li><b>Screen-Space Reflections</b></li>
+					<li><b>Depth-of-Field</b></li>
+					<li><b>LScript Scripting</b></li>
+					<li><b>Custom Libraries</b></li>
+				</ul>
+			</div>
+		</div>
+
+		<div>
+			<p>
+				GitHub: <a href="https://github.com/evrhel" target="null">evrhel</a>
+				<br>
+				LinkedIn: <a href="https://www.linkedin.com/in/ethan-vrhel/" target="null">evrhel</a>
+				<br>
+				Contact: <b>evrhel(at)cs.washington.edu</b>
+			</p>
+		</div>
+
+		<script src="index.js"></script>
+	</body>
+</html>
