@@ -18,7 +18,7 @@
 				<p class="content"><i>These features are still being updated and improved, but have the most significant functionality in the engine.</i></p>
 				<ul class="content_list">
 					<li><b>Filesystem Manager</b> - <i>Abstracts filesystem operations and handles loading some file formats.</i></li>
-					<li><b>Dynamic Shader Loader</b> - <i>Links related vertex and fragment shaders together and binds them to input from material files.</i></li>
+					<li><b>Dynamic Shader Loader</b> - <i>Links related GLSL shaders together and binds them to C++ vertex and material shader classes and to input from material files.</i></li>
 					<li><b>Event-Driven GUI System</b> - <i>Interface set up in a way that mimics Java AWT.</i></li>
 					<li><b>C++ Scripting System</b> - <i>Developers may write C++ scripts to define the internal behavior of their application.</i></li>
 					<li><b>HDR and Post-Processing Support</b> - <i>Supports High Dynamic Range (HDR) rendering and post-processing effects such as Gaussian Blurs, Bloom and FXAA.</i></li>
@@ -44,16 +44,22 @@
 			<div class="content_div">
 				<p class="content"><i>These features I want to eventually add sometime in the future in no particular order.</i></p>
 				<ul class="content_list">
-					<li><b>Texture Animations</b></li>
-					<li><b>PBR Rendering</b></li>
-					<li><b>Map Editor</b></li>
-					<li><b>Planar Reflections</b></li>
-					<li><b>Screen-Space Reflections</b></li>
-					<li><b>Depth-of-Field</b></li>
-					<li><b>LScript Scripting</b></li>
-					<li><b>Custom Libraries</b></li>
+					<li><b>Texture Array Support</b> - <i>To make more texture units taken by numerous material textures avaliable for other features.</i></li>
+					<li><b>Texture Animations</b> - <i>Textures change their look over time without C++ scripting.</i></li>
+					<li><b>PBR Rendering</b> - <i>Phyiscially-based rendering model.</i></li>
+					<li><b>Map Editor</b> - <i>A visual editor for features not related to C++ scripting or engine code.</i></li>
+					<li><b>Planar Reflections</b> - <i>Reflections on a plane using multiple cameras for reflection and refraction.</i></li>
+					<li><b>Post-Processing Effects</b> - <i>Adding more post-processing effects like screen-space reflections, depth-of-field, etc.</i></li>
+					<li><b>More Robust GUI System</b> - <i>The current GUI system can be confusing to use and should be able to support more GUI elements as well as be more trivial to use.</i></li>
+					<li><b>LScript Scripting</b> - <i>Support for users to use lscript files to control game behavior.</i></li>
+					<li><b>Support for Multiple Graphics APIs</b> - <i>DirectX 11, 12 and/or Vulkan.</i></li>
+					<li><b>Custom Libraries</b> - <i>Movement away from libraries like GLFW in favor of native window libraries to reduce overhead.</i></li>
 				</ul>
 			</div>
+		</div>
+
+		<div>
+			<p><a href="index.html">Home</a></p>
 		</div>
 
 		<div>
