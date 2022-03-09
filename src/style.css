@@ -115,3 +115,11 @@ em {
 	font-family: Courier New, monospace;
 	font-style: normal;
 }
+
+a.hover_img img {
+	display: none;
+}
+
+a.hover_img:hover img {
+	display: block;
+}
