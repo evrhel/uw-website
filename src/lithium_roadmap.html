@@ -9,7 +9,8 @@
 	<body>
 		<div>
 			<h1>Lithium Roadmap</h1>
-			<p><b>Last Feature Update:</b> 3/9/2022</p>
+			<p><b>Last Feature Update:</b> 5/2/2022</p>
+			<p><a href="lithium_screenshots.html">Screenshots</a></p>
 		</div>
 
 		<div class="collapsible_group">
@@ -19,15 +20,16 @@
 				<ul class="content_list">
 					<li><b>Filesystem Manager</b> - <i>Abstracts filesystem operations and handles loading some file formats.</i></li>
 					<li><b>Dynamic Shader Loader</b> - <i>Links related GLSL shaders together and binds them to C++ vertex and material shader classes and to input from material files.</i></li>
-					<li><b>Event-Driven GUI System</b> - <i>Interface set up in a way that mimics Java AWT.</i></li>
+					<li><b>Event-Driven GUI System</b> - <i>Interface set up in a way that mimics Java AWT/Swing.</i></li>
 					<li><b>C++ Scripting System</b> - <i>Developers may write C++ scripts to define the internal behavior of their application.</i></li>
-					<li><b>HDR and Post-Processing Support</b> - <i>Supports High Dynamic Range (HDR) rendering and post-processing effects such as Gaussian Blurs, Bloom and FXAA.</i></li>
-					<li><b>Material System</b> - <i>Handles loading material files which define a set of parameters to tell the engine how to draw an object. Supports albedo, specular, normal, ambient oucclusion and reflection mapping.</i></li>
-					<li><b>Shadow Mapping</b> - <i>Renders shadow maps which are used in shaders to create shadows in a scene.</i></li>
+					<li><b>HDR and Post-Processing Support</b> - <i>Supports High Dynamic Range (HDR) rendering and Bloom, Lens Flare and Dirt, Screen-Space Crepuscular Rays, Screen-Space Reflections, and FXAA.</i></li>
+					<li><b>Material System</b> - <i>Handles loading material files which define a set of parameters to tell the engine how to draw an object. Supports scriptable albedo, specular, normal, ambient oucclusion and reflection mapping.</i></li>
+					<li><b>Cascaded Shadow Mapping</b> - <i>Supports up to 4 shadow cascades for high-quality and long-distance shadows.</i></li>
 					<li><b>Terrain Rendering</b> - <i>Rendered using a heightmap for vertex positions and splatmap for texture blending.</i></li>
 					<li><b>Particle Systems</b> - <i>Uses instanced rendering to be able to draw a large number of objects with little performance impact.</i></li>
 					<li><b>Authoring Tools</b> - <i>A set of tools for developers to create assets for their game outside of code.</i></li>
 					<li><b>Map System</b> - <i>Loads named binary map files, compiled from a text format, containing world geometry and entities defining behavior as well as automatically handling any loaded resources.</i></li>
+					<li><b>Animation System</b> - <i>A system to automatically handle transformations of objects within a scene.</i></li>
 				</ul>
 			</div>
 
@@ -35,11 +37,11 @@
 			<div class="content_div">
 				<p class="content"><i>These features are currently being implemented and do not have full functionality.</i></p>
 				<ul class="content_list">
-					<li><b>Animation System</b> - <i>A system to automatically handle transformations of objects within a scene.</i></li>
+					<li><b>Better Model Handling</b> - <i>Adding better support for Level-of-Detail (LOD) and multiple materials</i></li>
 					<li><b>Texture Array Support</b> - <i>To make more texture units taken by numerous material textures avaliable for other features.</i></li>
-					<li><b>Cascaded Shadow Maps</b> - <i>Fragments closer to the camera use higher quality lightmaps compared to further ones to reduce perspective aliasing or shadow acne.</i></li>
-					<li><b>More Robust GUI System</b> - <i>The current GUI system can be confusing to use and should be able to support more GUI elements as well as be more trivial to use.</i></li>
-					<li><b>SSAO</b> - <i>Screen-Space Ambient Occlusion post-processing effect</i></li>
+					<li><b>Post-Processing Effects</b> - <i>Adding more post-processing effects like depth-of-field, motion blur, etc.</i></li>
+					<li><b>Multithreaded Rendering</b> - <i>Make the renderer multi-threaded, this is difficult as OpenGL only works on the main thread.</i></li>
+					<li><b>General Optimizations</b> - <i>Working on decreasing CPU and GPU overhead</i></li>
 				</ul>
 			</div>
 
@@ -47,12 +49,9 @@
 			<div class="content_div">
 				<p class="content"><i>These features I want to eventually add sometime in the future in no particular order.</i></p>
 				<ul class="content_list">
-					<li><b>Texture Animations</b> - <i>Textures change their look over time without C++ scripting.</i></li>
 					<li><b>PBR Rendering</b> - <i>Phyiscially-based rendering model.</i></li>
 					<li><b>Map Editor</b> - <i>A visual editor for features not related to C++ scripting or engine code.</i></li>
 					<li><b>Planar Reflections</b> - <i>Reflections on a plane using multiple cameras for reflection and refraction.</i></li>
-					<li><b>Post-Processing Effects</b> - <i>Adding more post-processing effects like screen-space reflections, depth-of-field, etc.</i></li>
-					<li><b>LScript Scripting</b> - <i>Support for users to use lscript files to control game behavior.</i></li>
 					<li><b>Support for Multiple Graphics APIs</b> - <i>DirectX 11, 12 and/or Vulkan.</i></li>
 					<li><b>Custom Libraries</b> - <i>Movement away from libraries like GLFW in favor of native window libraries to reduce overhead.</i></li>
 				</ul>
