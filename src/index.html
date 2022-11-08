@@ -3,88 +3,172 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="style.css" rel="stylesheet" type="text/css">
+	<script src="index.js" defer></script>
 	<head>
 		<title>Ethan Vrhel</title>
 	</head>
+	<nav>
+		<ul>
+			<li><a href="#top">Home</a></li>
+			<li><a href="#projects">Projects</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+	</nav>
 	<body>
-		<h1>Hello!</h1>
 
-		<div>
-			<p>Hi! I'm Ethan, a Senior at the University of Washington in Seattle, and am majoring in Computer Science.</p>
-			<p>
-				<h2>Interests</h2>
-				<table>
-					<tr>
-						<td>Low-Level Programming</td>
-					</tr>
-					<tr>
-						<td>3D Computer Graphics</td>
-					</tr>
-					<tr>
-						<td>Hardware Acceleration on GPUs</td>
-					</tr>
-					<tr>
-						<td>Embedded Systems</td>
-					</tr>
-				</table>
-			</p>
-		</div>
-
-		<h2>Major Projects</h2>
-		<div class="collapsible_group">
-			<button type="button" class="collapsible">Lithium</button>
-			<div class="content_div">
-				<p class="content">
-					Lithium is a 3D game engine written in C++ and OpenGL for 64-bit Windows. It has been under development since 2019.
-				</p>
-
-				<p class="content">
-					It currently supports a complex material system, a system for mounting assets, and several custom file types. Alongside these engine features, it comes packaged with a capable filesystem manager which supports both normal file loading as well as file streaming.
-				</p>
-
-				<p class="content">
-					Lithium is currently not publicly avaliable, but will be made public once enough features are supported to allow for users to easily create games.
-				</p>
-
-				<p class="content">
-					See the roadmap <a class="content_link" href=lithium_roadmap.html>here</a>.
-				</p>
-			</div>
-			<button type="button" class="collapsible">MatrixUtil</button>
-			<div class="content_div">
-				<p class="content">MatrixUtil is a library written in C++ as well as Intel SIMD Intrinsics for handling vector and matrix operations. The library is designed with 3D graphics programming in mind.</p>
-
-				<p class="content">
-					<a class="content_link" href="https://github.com/evrhel/MatrixUtil" target="null">GitHub Repository</a>
-				</p>
-			</div>
-			<button type="button" class="collapsible">LScript</button>
-			<div class="content_div">
-				<p class="content">
-					LScript is an in-development statically typed scripting language (kind of). The language supports both procedural and object-oriented programming. The source code compiles to a bytecode which is read by the virtual machine which features many features similar to the Java Virtual Machine. The LScript Virtual Machine, compiler, and decompiler are all written entirely in C and x86-64 Assembly.
-				</p>
-
-				<p class="content">
-					The virtual machine provides features such as a set of library functions for developers to use, as well as a native interface so developers can write native C or C++ functions and link to an LScript function.
-				</p>
-
-				<p class="content">
-					<a class="content_link" href="https://github.com/evrhel/lscript" target="null">GitHub Repository</a>
-				</p>
+		<div id="top">
+			<h1 id="#top">Hello!</h1>
+			<div class="content">
+				<p>Hi! I'm Ethan, a senior at the University of Washington in Seattle, and am majoring in Computer Science.</p>
+				<p>I'm especially interested in computer graphics, programming languages, and low-level programming constructs.</p>
+				<p>I plan to persue a double major in either Applied Math or Math.</p>
 			</div>
 		</div>
-		
 
-		<div>
+		<div id="projects">
+			<h1>Projects</h1>
+			
+			<h2>Lithium</h2>
+			<div class="content">
+				<p>
+					Lithium is a 3D game engine written in C++ and uses OpenGL for hardware-accelerated rendering.
+				</p>
+
+				<p>
+					Uses a deferred rendering pipeline by default and a Physically Based Rendering lighting model<br>
+					alongside several modern post-processing effects.
+				</p>
+
+				<p>
+					Supports authoring C++ scripts to control game behavior, a complex resource system which manages<br>
+					resources automatically and only loads what is necessary at a single moment.
+				</p>
+
+				
+
+				<a href="lithium_roadmap.html" class="body-list">Read More</a>
+			</div>
+
+			<h2>MatrixUtil</h2>
+
+			<div class="content">
+				<p>
+					MatrixUtil is a library written in C++ to handle both vector and matrix calculations and quaternion<br>
+					calculations. The library uses Intel SIMD Intrinsics for fast computations. Support for ARM Neon is<br>
+					currnently in development.
+				</p>
+
+				<em><p>Example library usage to rotate a point</p></em>
+
+				<em><code>main.cpp</code></em><br><br>
+				<pre class="code">
+					<span class="tr first-row"><span class="th"></span><span class="define">&#35;include</span> <span class="string">&lt;mutil/mutil.h&gt;</span><code></code></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">using namespace</span> mutil;</span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">int</span> <span class="function">main</span>(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[]) {</span>
+
+					<span class="tr"><span class="th"></span>   <span class="type">Vector4</span> p(<span class="number">1.0f</span>, <span class="number">3.0f</span>, <span class="number">5.0f</span>, <span class="number">1.0f</span>);</span>
+					<span class="tr"><span class="th"></span>   <span class="type">Vector4</span> t;</span></span>
+					<span class="tr"><span class="th"></span></span>
+
+					<span class="tr"><span class="th"></span>   <span class="comment">// create matrix that rotates 45 degrees around x axis</span></span>
+					<span class="tr"><span class="th"></span>   <span class="type">Matrix4</span> M(<span class="number">1.0f</span>);</span>
+					<span class="tr"><span class="th"></span>   M = <span class="function">rotate</span>(M, <span class="function">radians</span>(<span class="number">45.0f</span>), <span class="type">Vector3</span>(<span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>));</span></span>
+					<span class="tr"><span class="th"></span>   t = M * p; <span class="comment">// applies M on p</span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span>   <span class="comment">// same thing, but using quaternions</span></span>
+					<span class="tr"><span class="th"></span>   <span class="type">Quaternion</span> q = <span class="function">rotateaxis</span>(<span class="type">Vector3</span>(<span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>))</span>
+					<span class="tr"><span class="th"></span>   t = <span class="function">rotatevector</span>(p);</span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span>   <span class="comment">// another way to use quaternions</span></span>
+					<span class="tr"><span class="th"></span>   t = <span class="function">torotation</span>(q) * p;</span>
+					<span class="tr"><span class="th"></span>}</span>
+					<span class="tr"><span class="th"></span></span>
+				</pre>
+
+				<a href="https://github.com/evrhel/MatrixUtil" target="null" class="body-list">GitHub Repository</a>
+			</div>
+
+			<h2>lscript</h2>
+
+			<div class="content">
+				<p>
+				 	lscript is an in-development statically typed scripting language (kind of). The language supports both<br>
+				 	procedural and object-oriented programming. The source code compiles to a bytecode which is read by the<br>
+				 	virtual machine which features many features similar to the Java Virtual Machine. The LScript Virtual<br>
+				 	Machine, compiler, and decompiler are all written entirely in C and x86-64 Assembly.
+			 	</p>
+
+			 	<p>
+					The virtual machine provides features such as a set of library functions for developers to use, as well<br>
+					as a native interface so developers can write native C or C++ functions and link to an LScript function. 
+				</p>
+
+				<em><p>Example lscript class that writes to a file</p></em>
+
+				<em><code>Main.lasm</code></em><br><br>
+				<pre class="code">
+					<span class="tr first-row"><span class="th"></span><span class="keyword">using</span> <span class="type">lscript.io</span><code></code></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="comment"># Implicitly extends lscript.lang.Object</span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">class</span> <span class="type">Main</span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span>   <span class="comment"># Program entry point</span></span>
+					<span class="tr"><span class="th"></span>   <span class="keyword">function static void</span> <span class="function">main</span>(<span class="keyword">objectarray</span> <span class="type">String</span> args)</span>
+					<span class="tr"><span class="th"></span>      <span class="comment"># Create a lscript.io.FileOutputStream targeting test.txt</span></span>
+					<span class="tr"><span class="th"></span>      <span class="keyword">object</span> <span class="type">FileOutputStream</span> fout</span>
+					<span class="tr"><span class="th"></span>      <span class="keyword">seto</span> fout <span class="keyword">new</span> <span class="type">FileOutputStream</span>(<em>L</em><span class="type">String</span>;) <span class="string">"test.txt"</span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span>      <span class="comment"># Write "Hello World!" to the file and close</span></span>
+					<span class="tr"><span class="th"></span>      <span class="keyword">dynamic_call</span> fout.<span class="function">print</span>(<em>L</em><span class="type">String</span>;) <span class="string">"Hello World!"</span></span>
+					<span class="tr"><span class="th"></span>      <span class="keyword">dynamic_call</span> fout.<span class="function">close</span>()</span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span>      <span class="keyword">ret</span></span>
+					<span class="tr"><span class="th"></span></span>
+				</pre>
+				<em><p style="padding-top: 10px; padding-bottom: 5px;">To compile and run:</p></em>
+				<pre class="inline-code">lsasm Main.lasm</pre>
+				<pre class="inline-code">lscript Main.lscript</pre>
+
+				<a href="https://github.com/evrhel/lscript" target="null" class="body-list">GitHub Repository</a>
+			</div>
+
+			<h2>hexview</h2>
+
+			<div class="content">
+				<p>
+					hexview is a cross-platform, command-line binary file viewer. It supports seeking through files<br>
+					and interpreting groups of bytes as many common data types, such as larger width integers, both<br>
+					signed and unsigned, floating point numbers, and strings. Utilities are avaliable within the<br>
+					viewer to make navigating the file easier.
+				</p>
+
+
+				<p><em>hexview running in Windows command prompt</em></p>
+				<img style="margin-left: 10px; border: 5px solid #252525; border-style: inset;" src="hexview.png" alt="hexview in DOS command prompt">
+
+				<a href="https://github.com/evrhel/hexview" target="null" class="body-list">GitHub Repository</a>
+			</div>
+
+		</div>
+
+		<h1 id="contact">Contact</h1>
+
+		<div class="content">
 			<p>
-				GitHub: <a href="https://github.com/evrhel" target="null">evrhel</a>
+				GitHub: <a class="body-link" href="https://github.com/evrhel" target="null">evrhel</a>
 				<br>
-				LinkedIn: <a href="https://www.linkedin.com/in/ethan-vrhel/" target="null">ethan-vrhel</a>
+				LinkedIn: <a class="body-link" href="https://www.linkedin.com/in/ethan-vrhel/" target="null">ethan-vrhel</a>
 				<br>
 				Contact: <b>evrhel(at)cs.washington.edu</b>
 			</p>
 		</div>
 
-		<script src="index.js"></script>
+
+		<div>
+			<em><p style="text-align: center;">&copy; 2022 Ethan Vrhel</p></em>
+		</div>
 	</body>
 </html>
