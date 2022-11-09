@@ -19,7 +19,8 @@
 		<p>
 			<a href="#about" class="body-link">&darr; About</a><br>
 			<a href="#roadmap" class="body-link">&darr; Roadmap</a><br>
-			<a href="#examples" class="body-link">&darr; Examples</a>
+			<a href="#examples" class="body-link">&darr; Examples</a><br>
+			<a href="#screenshots" class="body-link">&darr; Screenshots</a>
 		</p>
 
 		<h1 id="about">About</h1>
@@ -131,6 +132,28 @@
 		<h1 id="roadmap">Roadmap</h1>
 		<div class="content">
 			<p><a href="#top" class="body-link">&uarr; Top</a></p>
+			<h2>Future Features</h2>
+			<ul style="margin-left: 35px;">
+				<li>Engine Editor</li>
+				<li>Additional Optimization Methods</li>
+					<ul style="margin-left: 20px; font-size: 11pt;">
+						<li>Occluders/Portals</li>
+						<li>Better Balancing Between GPU/CPU</li>
+						<li>Smarter Rendering Order of Objects</li>
+						<li>BSP Trees</li>
+						<li>Reduce Number of Vertex Array Binds</li>
+						<li>Reduce Number of Texture Binds</li>
+						<li>More Instanced Rendering/Object Batching</li>
+					</ul>
+				<li>Easier to use GUI API</li>
+				<li>Transparency Support in Deferred Pipeline</li>
+				<li>Vulkan Support</li>
+					<ul style="margin-left: 20px; font-size: 11pt;">
+						<li>Nvidia DLSS can be supported</li>
+					</ul>
+				<li>Easier Shader Programming</li>
+				<li>Physics</li>
+			</ul>
 		</div>
 
 		<h1 id="examples">Examples</h1>
@@ -203,8 +226,84 @@
 					<span class="tr"><span class="th"></span></span>
 				</pre>
 
+			<br>
+			<h3>Example Material Script</h3>
+
+				<p>
+					Script is used to animate water outside C++ code and is referenced within the water material file,<br>
+					but can be used to animate any material.
+				</p>
+
+				<em><code>animate_water.psc</code></em><br><br>
+				<pre class="code">
+					<span class="tr first-row"><span class="th"></span><span class="comment">; $tpos is an output variable which controls texture offset</span><code></code></span>
+					<span class="tr"><span class="th"></span><span class="keyword">import</span> $tpos <span class="keyword">from</span> <span class="type">Lithium.Texture</span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="comment">; $time is an input variable equal to the number of seconds the map has been running</span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">import</span> $time <span class="keyword">from</span> <span class="type">Lithium.Engine</span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="comment">; translate texture proportional to map uptime</span></span>
+					<span class="tr"><span class="th"></span>$tpos: <span class="function">vec2</span>(<span class="function">div</span>($time, <span class="number">16</span>), <span class="function">div</span>($time, <span class="number">8</span>))</span>
+					<span class="tr"><span class="th"></span></span>
+				</pre>
+
+				<br>
+				<p>
+					The water material that uses this script.
+				</p>
+
+				<em><code>water.lmt</code></em><br><br>
+				<pre class="code">
+					<span class="tr first-row"><span class="th"></span>&lt;<span class="keyword">material</span> <span class="type">version</span>=<span class="string">"1.0"</span>&gt;</span><code></code></span>
+
+					<span class="tr"><span class="th"></span></span>
+
+					<span class="tr"><span class="th"></span>   <span class="comment">&lt;-- What shader this material should use --&gt;</span></span>
+					<span class="tr"><span class="th"></span>   &lt;<span class="keyword">shader</span> <span class="type">shader</span>=<span class="string">"GBufferGenericDeferred"</span>&gt;</span>
+
+						<span class="tr"><span class="th"></span>      <span class="comment">&lt;-- Tell the shader to use these textures as input --&gt;</span></span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">albedo</span> <span class="type">base</span>=<span class="string">"color"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">metallic</span> <span class="type">base</span>=<span class="string">"metallic"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">roughness</span> <span class="type">base</span>=<span class="string">"roughness"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">normal</span> <span class="type">base</span>=<span class="string">"normal"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">normalIntensity</span> <span class="type">base</span>=<span class="string">"0.1"</span>/&gt;</span>
+
+					<span class="tr"><span class="th"></span>   &lt;/<span class="keyword">shader</span>&gt;</span>
+
+					<span class="tr"><span class="th"></span></span>
+
+					<span class="tr"><span class="th"></span>   <span class="comment">&lt;-- Tie script(s) to this material --&gt;</span></span>
+					<span class="tr"><span class="th"></span>   &lt;<span class="keyword">proxies</span>&gt;</span>
+
+						<span class="tr"><span class="th"></span>      <span class="comment">&lt;-- Binds the source textures to be controlled by the target script --&gt;</span></span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">proxy</span> <span class="type">target</span>=<span class="string">"albedo metallic roughness normal"</span> <span class="type">target</span>=<span class="string">"nature/animate_water"</span>/&gt;</span>
+
+					<span class="tr"><span class="th"></span>   &lt;/<span class="keyword">proxies</span>&gt;</span>
+
+					<span class="tr"><span class="th"></span></span>
+
+					<span class="tr"><span class="th"></span>&lt;/<span class="keyword">material</span>&gt;</span>
+
+					<span class="tr"><span class="th"></span></span>
+				</pre>
+
 				<br>
 				<p><a href="#top" class="body-link">&uarr; Top</a></p>
+		</div>
+
+		<h1 id="screenshots">Screenshots</h1>
+		<div class="content">
+			<p><a href="#top" class="body-link">&uarr; Top</a></p>
+			<p><em>Physically-Based Rendering Model</em></p>
+			<p><img width="40%" height="40%" src="pbr.png"></p>
+			<p><em>Large Open-World Environments</em></p>
+			<p><img width="40%" height="40%" src="new_terrain.png"></p>
+			<p><em>Water reflecting a house, using Screen-Space Reflections</em></p>
+			<p><img width="40%" height="40%" src="new_water.png"></p>
+			<p><em>Supported antialiasing modes</em></p>
+			<p><img src="aa.png"></p>
+			<p><em>Example usage of the scripting REPL</em></p>
+			<p><img width="45%" height="45%" src="repl.png"></p>
 		</div>
 
 		<div>
