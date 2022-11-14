@@ -80,7 +80,7 @@
 					<span class="tr"><span class="th"></span></span>
 					<span class="tr"><span class="th"></span>   <span class="comment">// same thing, but using quaternions</span></span>
 					<span class="tr"><span class="th"></span>   <span class="type">Quaternion</span> q = <span class="function">rotateaxis</span>(<span class="type">Vector3</span>(<span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>))</span>
-					<span class="tr"><span class="th"></span>   t = <span class="function">rotatevector</span>(p);</span>
+					<span class="tr"><span class="th"></span>   t = <span class="function">rotatevector</span>(q, p);</span>
 					<span class="tr"><span class="th"></span></span>
 					<span class="tr"><span class="th"></span>   <span class="comment">// another way to use quaternions</span></span>
 					<span class="tr"><span class="th"></span>   t = <span class="function">torotation</span>(q) * p;</span>

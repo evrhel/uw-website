@@ -35,7 +35,7 @@
 
 			<p>
 				The engine allows for modular development of a game meaning that programmers, texture artists,<br>
-				modelerers, mappers, etc. will see few conflicts in their project during development due to the<br>
+				modelers, mappers, etc. will see few conflicts in their project during development due to the<br>
 				authoring tools provided by the engine and the modular design of the engine's internal code.
 			</p>
 
@@ -258,10 +258,10 @@
 
 					<span class="tr"><span class="th"></span></span>
 
-					<span class="tr"><span class="th"></span>   <span class="comment">&lt;-- What shader this material should use --&gt;</span></span>
+					<span class="tr"><span class="th"></span>   <span class="comment">&lt;!-- What shader this material should use --&gt;</span></span>
 					<span class="tr"><span class="th"></span>   &lt;<span class="keyword">shader</span> <span class="type">shader</span>=<span class="string">"GBufferGenericDeferred"</span>&gt;</span>
 
-						<span class="tr"><span class="th"></span>      <span class="comment">&lt;-- Tell the shader to use these textures as input --&gt;</span></span>
+						<span class="tr"><span class="th"></span>      <span class="comment">&lt;!-- Tell the shader to use these textures as input --&gt;</span></span>
 						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">albedo</span> <span class="type">base</span>=<span class="string">"color"</span>/&gt;</span>
 						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">metallic</span> <span class="type">base</span>=<span class="string">"metallic"</span>/&gt;</span>
 						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">roughness</span> <span class="type">base</span>=<span class="string">"roughness"</span>/&gt;</span>
@@ -272,10 +272,10 @@
 
 					<span class="tr"><span class="th"></span></span>
 
-					<span class="tr"><span class="th"></span>   <span class="comment">&lt;-- Tie script(s) to this material --&gt;</span></span>
+					<span class="tr"><span class="th"></span>   <span class="comment">&lt;!-- Tie script(s) to this material --&gt;</span></span>
 					<span class="tr"><span class="th"></span>   &lt;<span class="keyword">proxies</span>&gt;</span>
 
-						<span class="tr"><span class="th"></span>      <span class="comment">&lt;-- Binds the source textures to be controlled by the target script --&gt;</span></span>
+						<span class="tr"><span class="th"></span>      <span class="comment">&lt;!-- Binds the source textures to be controlled by the target script --&gt;</span></span>
 						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">proxy</span> <span class="type">target</span>=<span class="string">"albedo metallic roughness normal"</span> <span class="type">target</span>=<span class="string">"nature/animate_water"</span>/&gt;</span>
 
 					<span class="tr"><span class="th"></span>   &lt;/<span class="keyword">proxies</span>&gt;</span>
