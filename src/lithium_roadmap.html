@@ -44,6 +44,16 @@
 				LODs for objects in the scene, and other graphics pipeline optimizations.
 			</p>
 
+			<p>
+				Currently, the engine is undergoing a major refactor to improve the engine's design, performance,<br>
+				and usability. This includes a new structure for how objects and behavior are handled and a suite<br>
+				of commonly used data structures and behavior across the different engine modules and projects.<br>
+				This includes a custom memory allocator, allowing both managed and unmanaged memory, custom<br>
+				containers, and synchronization primitives. This refactor is aimed to be comleted somewhere<br>
+				in mid-May. As a result of this refactor, some of the information below may become outdated as<br>
+				structures are constantly in flux.
+			</p>
+
 			<h2>Technical</h2>
 			<p>
 				<ul style="margin-left: 35px;">
@@ -55,7 +65,7 @@
 							<li>Emissive</li>
 							<li>Roughness</li>
 							<li>Metallic</li>
-							<li>AO</li>
+							<li>Ambient Occlusion</li>
 							<li>Normal</li>
 							<li>Irrandiance</li>
 						</ul>
@@ -76,18 +86,14 @@
 					</li>
 					<li>Rendering pipeline optimizations
 						<ul style="margin-left: 20px; font-size: 11pt;">
-							<li>Terrain LODs</li>
-							<li>Model LODs</li>
-							<li>Bounding-Volume Heirarchies</li>
-							<li>Frustum culling</li>
-							<li>Alpha-testing and halftoning</li>
+							<li>Model and Terrain LODs</li>
+							<li>Bounding-Volume Heirarchies and Frustum Culling</li>
+							<li>Alpha-testing and ordered dithering</li>
+							<li>Instanced rendering (on billboards)</li>
+							<li>Texture compression</li>
 						</ul>
 					</li>
-					<li>C++ Scripting API
-						<ul style="margin-left: 20px; font-size: 11pt;">
-							<li>Abstracts engine capabilities</li>
-						</ul>
-					</li>
+					<li>C++ Scripting API</li>
 					<li>Modular engine design</li>
 					<li>Dynamic Resource System
 						<ul style="margin-left: 20px; font-size: 11pt;">
@@ -117,7 +123,7 @@
 
 				<br>
 				<p>
-					The engine uses only Freetype 2, libpng, expat, zlib, and glad for third-party libraries.
+					The engine uses Freetype 2, libpng, expat, zlib, and glad for third-party libraries.
 				</p>
 
 				<p>
@@ -134,6 +140,12 @@
 			<p><a href="#top" class="body-link">&uarr; Top</a></p>
 			<h2>Future Features</h2>
 			<ul style="margin-left: 35px;">
+				<li>Materials create distinct shader programs
+					<ul style="margin-left: 20px; font-size: 11pt;">
+						<li>Constantly setting uniforms can be slow</li>
+						<li>Negative impact on memory and load times</li>
+					</ul>
+				</li>
 				<li>Engine Editor</li>
 				<li>Additional Optimization Methods</li>
 					<ul style="margin-left: 20px; font-size: 11pt;">
@@ -307,7 +319,7 @@
 		</div>
 
 		<div>
-			<em><p style="text-align: center;">&copy; 2022 Ethan Vrhel</p></em>
+			<em><p style="text-align: center;">&copy; 2023 Ethan Vrhel</p></em>
 		</div>
 	</body>
 </html>
