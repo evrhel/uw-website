@@ -190,22 +190,22 @@
 
 				<em><code>scripts.h</code></em><br><br>
 				<pre class="code">
-					<span class="tr first-row"><span class="th"></span><span class="define">&#35;include</span> <span class="string">&lt;game_script.h&gt;</span></span>
-					<span class="tr"><span class="th"></span><span class="define">&#35;include</span> <span class="string">&lt;engine.h&gt;</span></span>
-					<span class="tr"><span class="th"></span><span class="define">&#35;include</span> <span class="string">&lt;render_main.h&gt;</span></span>
-					<span class="tr"><span class="th"></span><span class="define">&#35;include</span> <span class="string">&lt;render_light.h&gt;</span></span>
+					<span class="tr first-row"><span class="th"></span><span class="define">&#35;include</span>&zwnj; <span class="string">&lt;game_script.h&gt;</span></span>
+					<span class="tr"><span class="th"></span><span class="define">&#35;include</span>&zwnj; <span class="string">&lt;engine.h&gt;</span></span>
+					<span class="tr"><span class="th"></span><span class="define">&#35;include</span>&zwnj; <span class="string">&lt;render_main.h&gt;</span></span>
+					<span class="tr"><span class="th"></span><span class="define">&#35;include</span>&zwnj; <span class="string">&lt;render_light.h&gt;</span></span>
 					<span class="tr"><span class="th"></span></span>
 					<span class="tr"><span class="th"></span><span class="keyword">using namespace</span> lithium;</span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span><span class="keyword">class</span> <span class="type">MyScript</span> : <span class="keyword">public</span> <span class="type">Script</span> {</span>
+					<span class="tr"><span class="th"></span><span class="keyword">class</span>&zwnj; <span class="type">MyScript</span> : <span class="keyword">public</span>&zwnj; <span class="type">Script</span> {</span>
 					<span class="tr"><span class="th"></span><span class="keyword">private</span>:</span>
-					<span class="tr"><span class="th"></span>   <span class="type">ManagedMemory</span>&lt;<span class="type">PointLight</span>&gt; m_light; <span class="comment">// auto-initializes to null</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="type">ManagedMemory</span>&lt;<span class="type">PointLight</span>&gt; m_light; <span class="comment">// auto-initializes to null</span></span>
 					<span class="tr"><span class="th"></span><span class="keyword">public</span>:</span>
-					<span class="tr"><span class="th"></span>   <span class="comment">// overriden functions, all optional</span></span>
-					<span class="tr"><span class="th"></span>   <span class="keyword">virtual bool</span> <span class="function">init</span>() <span class="keyword">override</span>;</span>
-					<span class="tr"><span class="th"></span>   <span class="keyword">virtual void</span> <span class="function">start</span>() <span class="keyword">override</span>;</span>
-					<span class="tr"><span class="th"></span>   <span class="keyword">virtual void</span> <span class="function">update</span>() <span class="keyword">override</span>;</span>
-					<span class="tr"><span class="th"></span>   <span class="keyword">virtual void</span> <span class="function">unload</span>() <span class="keyword">override</span>;</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// overriden functions, all optional</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">virtual bool</span>&zwnj; <span class="function">init</span>() <span class="keyword">override</span>;</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">virtual void</span>&zwnj; <span class="function">start</span>() <span class="keyword">override</span>;</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">virtual void</span>&zwnj; <span class="function">update</span>() <span class="keyword">override</span>;</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">virtual void</span>&zwnj; <span class="function">unload</span>() <span class="keyword">override</span>;</span>
 					<span class="tr"><span class="th"></span>}</span>
 					<span class="tr"><span class="th"></span></span>
 				</pre>
@@ -214,34 +214,34 @@
 
 				<em><code>myscript.cpp</code></em><br><br>
 				<pre class="code">
-					<span class="tr first-row"><span class="th"></span><span class="define">&#35;include</span> <span class="string">"scripts.h"</span><code></code></span>
+					<span class="tr first-row"><span class="th"></span><span class="define">&#35;include</span>&zwnj; <span class="string">"scripts.h"</span><code></code></span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span><span class="keyword">bool</span> <span class="type">MyScript</span>::<span class="function">init</span>() {</span>
-					<span class="tr"><span class="th"></span>   <span class="comment">// called when engine initializes</span></span>
-					<span class="tr"><span class="th"></span>   <span class="keyword">return</span> <span class="primitive">true</span>; <span class="comment">// success</span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">bool</span>&zwnj; <span class="type">MyScript</span>::<span class="function">init</span>() {</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// called when engine initializes</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">return</span>&zwnj; <span class="primitive">true</span>; <span class="comment">// success</span></span>
 					<span class="tr"><span class="th"></span>}</span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span><span class="keyword">void</span> <span class="type">MyScript</span>::<span class="function">start</span>() {</span>
-					<span class="tr"><span class="th"></span>   <span class="comment">// called when when the map loads</span></span>
-					<span class="tr"><span class="th"></span>   <span class="type">RenderLightHandler</span> *rLightHandler = ENGINE-><span class="function">renderLightHandler</span>();</span>
+					<span class="tr"><span class="th"></span><span class="keyword">void</span>&zwnj; <span class="type">MyScript</span>::<span class="function">start</span>() {</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// called when when the map loads</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="type">RenderLightHandler</span> *rLightHandler = ENGINE-><span class="function">renderLightHandler</span>();</span>
 					<span class="tr"><span class="th"></span>   m_light = rLightHandler-><span class="function">createPointLight</span>();</span>
 					<span class="tr"><span class="th"></span>   m_light->diffuse = <span class="type">Color3</span>(<span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>);</span>
 					<span class="tr"><span class="th"></span>   m_light->enabled = <span class="primitive">true</span>;</span>
 					<span class="tr"><span class="th"></span>}</span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span><span class="keyword">void</span> <span class="type">MyScript</span>::<span class="function">update</span>() {</span>
-					<span class="tr"><span class="th"></span>   <span class="comment">// called each frame</span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">void</span>&zwnj; <span class="type">MyScript</span>::<span class="function">update</span>() {</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// called each frame</span></span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span>   <span class="comment">// animates the position of the light</span></span>
-					<span class="tr"><span class="th"></span>   <span class="keyword">float</span> sinTime = <span class="function">sinf</span>(ENGINE-><span class="function">time</span>());</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// animates the position of the light</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">float</span> sinTime = <span class="function">sinf</span>(ENGINE-><span class="function">time</span>());</span>
 					<span class="tr"><span class="th"></span>   m_light->position = <span class="type">Vector3</span>(sinTime * <span class="number">10.0f</span>, <span class="number">10.0f</span>, <span class="number">0.0f</span>);</span>
 					<span class="tr"><span class="th"></span>}</span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span><span class="keyword">void</span> <span class="type">MyScript</span>::<span class="function">unload</span>() {</span>
-					<span class="tr"><span class="th"></span>   <span class="comment">// called when the map unloads</span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">void</span>&zwnj; <span class="type">MyScript</span>::<span class="function">unload</span>() {</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// called when the map unloads</span></span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span>   <span class="comment">// remove the light we created, or it will persist in next map</span></span>
-					<span class="tr"><span class="th"></span>   <span class="type">RenderLightHandler</span> *rLightHandler = ENGINE-><span class="function">renderLightHandler</span>();</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// remove the light we created, or it will persist in next map</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="type">RenderLightHandler</span> *rLightHandler = ENGINE-><span class="function">renderLightHandler</span>();</span>
 					<span class="tr"><span class="th"></span>   rLightHandler-><span class="function">removePointLight</span>(m_light);</span>
 					<span class="tr"><span class="th"></span>   m_light = <span class="macro">nulled</span>(<span class="type">PointLight</span>); <span class="comment">// good practice</span></span>
 					<span class="tr"><span class="th"></span>}</span>
@@ -276,29 +276,29 @@
 
 				<em><code>water.lmt</code></em><br><br>
 				<pre class="code">
-					<span class="tr first-row"><span class="th"></span>&lt;<span class="keyword">material</span> <span class="type">version</span>=<span class="string">"1.0"</span>&gt;</span><code></code></span>
+					<span class="tr first-row"><span class="th"></span>&lt;<span class="keyword">material</span>&zwnj; <span class="type">version</span>=<span class="string">"1.0"</span>&gt;</span><code></code></span>
 
 					<span class="tr"><span class="th"></span></span>
 
-					<span class="tr"><span class="th"></span>   <span class="comment">&lt;!-- What shader this material should use --&gt;</span></span>
-					<span class="tr"><span class="th"></span>   &lt;<span class="keyword">shader</span> <span class="type">shader</span>=<span class="string">"GBufferGenericDeferred"</span>&gt;</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">&lt;!-- What shader this material should use --&gt;</span></span>
+					<span class="tr"><span class="th"></span>   &lt;<span class="keyword">shader</span>&zwnj; <span class="type">shader</span>=<span class="string">"GBufferGenericDeferred"</span>&gt;</span>
 
-						<span class="tr"><span class="th"></span>      <span class="comment">&lt;!-- Tell the shader to use these textures as input --&gt;</span></span>
-						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">albedo</span> <span class="type">base</span>=<span class="string">"color"</span>/&gt;</span>
-						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">metallic</span> <span class="type">base</span>=<span class="string">"metallic"</span>/&gt;</span>
-						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">roughness</span> <span class="type">base</span>=<span class="string">"roughness"</span>/&gt;</span>
-						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">normal</span> <span class="type">base</span>=<span class="string">"normal"</span>/&gt;</span>
-						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">normalIntensity</span> <span class="type">base</span>=<span class="string">"0.1"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>&zwnj;      <span class="comment">&lt;!-- Tell the shader to use these textures as input --&gt;</span></span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">albedo</span>&zwnj; <span class="type">base</span>=<span class="string">"color"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">metallic</span>&zwnj; <span class="type">base</span>=<span class="string">"metallic"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">roughness</span>&zwnj; <span class="type">base</span>=<span class="string">"roughness"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">normal</span>&zwnj; <span class="type">base</span>=<span class="string">"normal"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">normalIntensity</span>&zwnj; <span class="type">base</span>=<span class="string">"0.1"</span>/&gt;</span>
 
 					<span class="tr"><span class="th"></span>   &lt;/<span class="keyword">shader</span>&gt;</span>
 
 					<span class="tr"><span class="th"></span></span>
 
-					<span class="tr"><span class="th"></span>   <span class="comment">&lt;!-- Tie script(s) to this material --&gt;</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">&lt;!-- Tie script(s) to this material --&gt;</span></span>
 					<span class="tr"><span class="th"></span>   &lt;<span class="keyword">proxies</span>&gt;</span>
 
-						<span class="tr"><span class="th"></span>      <span class="comment">&lt;!-- Binds the source textures to be controlled by the target script --&gt;</span></span>
-						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">proxy</span> <span class="type">target</span>=<span class="string">"albedo metallic roughness normal"</span> <span class="type">target</span>=<span class="string">"nature/animate_water"</span>/&gt;</span>
+						<span class="tr"><span class="th"></span>&zwnj;      <span class="comment">&lt;!-- Binds the source textures to be controlled by the target script --&gt;</span></span>
+						<span class="tr"><span class="th"></span>      &lt;<span class="keyword">proxy</span>&zwnj; <span class="type">target</span>=<span class="string">"albedo metallic roughness normal"</span>&zwnj; <span class="type">target</span>=<span class="string">"nature/animate_water"</span>/&gt;</span>
 
 					<span class="tr"><span class="th"></span>   &lt;/<span class="keyword">proxies</span>&gt;</span>
 

@@ -60,34 +60,34 @@
 
 				<em><p>Example library usage to rotate a point</p></em>
 
+				<!-- &zwnj; is an invisible character, fixes text being next to each other on chromium -->
+				<!-- issue arises anytime there is whitespace after a span -->
 				<em><code>main.cpp</code></em><br><br>
 				<pre class="code">
 					<span class="tr first-row"><span class="th"></span><span class="define">&#35;include</span> <span class="string">&lt;mutil/mutil.h&gt;</span><code></code></span>
 					<span class="tr"><span class="th"></span></span>
 					<span class="tr"><span class="th"></span><span class="keyword">using namespace</span> mutil;</span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span><span class="keyword">int</span> <span class="function">main</span>(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[]) {</span>
-
-					<span class="tr"><span class="th"></span>   <span class="type">Vector4</span> p(<span class="number">1.0f</span>, <span class="number">3.0f</span>, <span class="number">5.0f</span>, <span class="number">1.0f</span>);</span>
-					<span class="tr"><span class="th"></span>   <span class="type">Vector4</span> t;</span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">int</span>&zwnj; <span class="function">main</span>(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[]) {</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="type">Vector4</span> p(<span class="number">1.0f</span>, <span class="number">3.0f</span>, <span class="number">5.0f</span>, <span class="number">1.0f</span>);</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="type">Vector4</span> t;</span></span>
 					<span class="tr"><span class="th"></span></span>
-
-					<span class="tr"><span class="th"></span>   <span class="comment">// create matrix that rotates 45 degrees around x axis</span></span>
-					<span class="tr"><span class="th"></span>   <span class="type">Matrix4</span> M(<span class="number">1.0f</span>);</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// create matrix that rotates 45 degrees around x axis</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="type">Matrix4</span> M(<span class="number">1.0f</span>);</span>
 					<span class="tr"><span class="th"></span>   M = <span class="function">rotate</span>(M, <span class="function">radians</span>(<span class="number">45.0f</span>), <span class="type">Vector3</span>(<span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>));</span></span>
 					<span class="tr"><span class="th"></span>   t = M * p; <span class="comment">// applies M on p</span></span>
 					<span class="tr"><span class="th"></span></span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span>   <span class="comment">// same thing, but using quaternions</span></span>
-					<span class="tr"><span class="th"></span>   <span class="type">Quaternion</span> q = <span class="function">rotateaxis</span>(<span class="type">Vector3</span>(<span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>), <span class="number">45.0f</span>);</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// same thing, but using quaternions</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="type">Quaternion</span> q = <span class="function">rotateaxis</span>(<span class="type">Vector3</span>(<span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>), <span class="number">45.0f</span>);</span>
 					<span class="tr"><span class="th"></span>   t = <span class="function">rotatevector</span>(q, p);</span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span>   <span class="comment">// another way to use quaternions</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// another way to use quaternions</span></span>
 					<span class="tr"><span class="th"></span>   t = <span class="function">torotation</span>(q) * p;</span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span>   <span class="comment">// convert between quaternions and euler angles</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// convert between quaternions and euler angles</span></span>
 					<span class="tr"><span class="th"></span>   q = <span class="function">fromeuler</span>(<span class="number">45.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>);</span></span>
-					<span class="tr"><span class="th"></span>   <span class="type">Vector3</span> euler = <span class="function">toeuler</span>(q);</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="type">Vector3</span> euler = <span class="function">toeuler</span>(q);</span></span>
 					<span class="tr"><span class="th"></span>}</span>
 					<span class="tr"><span class="th"></span></span>
 				</pre>
@@ -114,22 +114,22 @@
 
 				<em><code>Main.lasm</code></em><br><br>
 				<pre class="code">
-					<span class="tr first-row"><span class="th"></span><span class="keyword">using</span> <span class="type">lscript.io</span><code></code></span>
+					<span class="tr first-row"><span class="th"></span><span class="keyword">using</span>&zwnj; <span class="type">lscript.io</span><code></code></span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span><span class="comment"># Implicitly extends lscript.lang.Object</span></span>
-					<span class="tr"><span class="th"></span><span class="keyword">class</span> <span class="type">Main</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;<span class="comment"># Implicitly extends lscript.lang.Object</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;<span class="keyword">class</span>&zwnj; <span class="type">Main</span></span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span>   <span class="comment"># Program entry point</span></span>
-					<span class="tr"><span class="th"></span>   <span class="keyword">function static void</span> <span class="function">main</span>(<span class="keyword">objectarray</span> <span class="type">String</span> args)</span>
-					<span class="tr"><span class="th"></span>      <span class="comment"># Create a lscript.io.FileOutputStream targeting test.txt</span></span>
-					<span class="tr"><span class="th"></span>      <span class="keyword">object</span> <span class="type">FileOutputStream</span> fout</span>
-					<span class="tr"><span class="th"></span>      <span class="keyword">seto</span> fout <span class="keyword">new</span> <span class="type">FileOutputStream</span>(<em>L</em><span class="type">String</span>;) <span class="string">"test.txt"</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment"># Program entry point</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">function static void</span>&zwnj; <span class="function">main</span>(<span class="keyword">objectarray</span> <span class="type">String</span> args)</span>
+					<span class="tr"><span class="th"></span>&zwnj;      <span class="comment"># Create a lscript.io.FileOutputStream targeting test.txt</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;      <span class="keyword">object</span>&zwnj; <span class="type">FileOutputStream</span> fout</span>
+					<span class="tr"><span class="th"></span>&zwnj;      <span class="keyword">seto</span>&zwnj; fout <span class="keyword">new</span>&zwnj; <span class="type">FileOutputStream</span>(<em>L</em><span class="type">String</span>;) <span class="string">"test.txt"</span></span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span>      <span class="comment"># Write "Hello World!" to the file and close</span></span>
-					<span class="tr"><span class="th"></span>      <span class="keyword">dynamic_call</span> fout.<span class="function">print</span>(<em>L</em><span class="type">String</span>;) <span class="string">"Hello World!"</span></span>
-					<span class="tr"><span class="th"></span>      <span class="keyword">dynamic_call</span> fout.<span class="function">close</span>()</span>
+					<span class="tr"><span class="th"></span>&zwnj;      <span class="comment"># Write "Hello World!" to the file and close</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;      <span class="keyword">dynamic_call</span>&zwnj; fout.<span class="function">print</span>(<em>L</em><span class="type">String</span>;) <span class="string">"Hello World!"</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;      <span class="keyword">dynamic_call</span>&zwnj; fout.<span class="function">close</span>()</span>
 					<span class="tr"><span class="th"></span></span>
-					<span class="tr"><span class="th"></span>      <span class="keyword">ret</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;      <span class="keyword">ret</span></span>
 					<span class="tr"><span class="th"></span></span>
 				</pre>
 				<em><p style="padding-top: 10px; padding-bottom: 5px;">To compile and run:</p></em>
