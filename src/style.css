@@ -150,6 +150,18 @@ body .body-list {
 	transition: 0.3s;
 }
 
+.section-link {
+	color: #eee;
+	font-style: normal;
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+/*.section-link:hover {
+	color: orange;
+	transition: 0.3s;
+}*/
+
 body .body-list:hover {
 	/*background: #393939;*/
 	transition: 0.3s;

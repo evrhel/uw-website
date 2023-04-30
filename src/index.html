@@ -19,7 +19,7 @@
 		<div id="top">
 			<h1 id="#top">Hello!</h1>
 			<div class="content">
-				<p>I'm Ethan, a senior at the University of Washington in Seattle, and am majoring in Computer Science.</p>
+				<p>I'm Ethan, a senior at the University of Washington in Seattle, and I am majoring in Computer Science.</p>
 				<p>I'm especially interested in computer graphics, programming languages, and low-level programming constructs.</p>
 				<p>I plan to graduate in 2024.</p>
 			</div>
@@ -28,7 +28,7 @@
 		<div id="projects">
 			<h1>Projects</h1>
 			
-			<h2>Lithium</h2>
+			<h2 id="lithium">Lithium</h2>
 			<div class="content">
 				<p>
 					Lithium is a 3D game engine written in C++ and uses OpenGL for hardware-accelerated rendering.
@@ -49,7 +49,7 @@
 				<a href="lithium_roadmap.html" class="body-list">Read More</a>
 			</div>
 
-			<h2>MatrixUtil</h2>
+			<h2 id="matrixutil">MatrixUtil</h2>
 
 			<div class="content">
 				<p>
@@ -95,7 +95,43 @@
 				<a href="https://github.com/evrhel/MatrixUtil" target="null" class="body-list">GitHub Repository</a>
 			</div>
 
-			<h2>lscript</h2>
+			<h2 id="mtgl">mtgl</h2>
+
+			<div class="content">
+				<p>
+					mtgl (short for <b>M</b>ulti<b>t</b>hreaded Open<b>GL</b>) is an in-development Window and OpenGL abstraction library.<br>
+					There is a heavy focus on making multithreaded OpenGL rendering as easy as possible. The library is<br>
+					written in C and Objective-C and can be used on both Windows and macOS. The library provides a simple<br>
+					interface for creating windows and OpenGL contexts as well as providing an input system, allowing the<br>
+					capture of window events alongside keyboard, mouse, and joystick/controller input.<br>
+				</p>
+
+				<p>
+					Due to the realtime responsiveness that is expected of games, slowdowns in the rendering thread<br>
+					can be detrimental to the user experience. Multithreading can be used to mitigate this issue by<br>
+					offloading slow work to another thread.
+				</p>
+
+				<p>
+					However, the issue arrives when some work you did on another thread needs to be used on the rendering<br>
+					thread. OpenGL is not thread safe, so synchronization is required. The place where you synchronize<br>
+					matters so that the state of OpenGL states consistent. This is where mtgl comes in. The most powerful<br>
+					feature of mtgl is the ability to synchronize on an OpenGL context itself. This allows the context to<br>
+					always be in a consistent state, and allows the user to perform OpenGL calls on any thread.
+				</p>
+
+				<p>
+					One of the most obvious uses of this would be when needing to load information from the disk. This<br>
+					operation is very slow and reading it on the rendering thread would cause a noticeable hitch. Instead,<br>
+					we offload the disk operation to another thread. Once the data is loaded, we can then synchronize on<br>
+					the OpenGL context and upload the data to the GPU. This allows the rendering thread to continue<br>
+					running while the data is being loaded, and the user will not notice any hitches.<br>
+				</p>
+
+				<a href="https://github.com/evrhel/mtgl" target="null" class="body-list">GitHub Repository</a>
+			</div>
+
+			<h2 id="lscript">lscript</h2>
 
 			<div class="content">
 				<p>
@@ -109,6 +145,8 @@
 					The virtual machine provides features such as a set of library functions for developers to use, as well<br>
 					as a native interface so developers can write native C or C++ functions and link to an LScript function. 
 				</p>
+
+				<p>lscript 2 is in development at the moment, which improves usability.</p>
 
 				<em><p>Example lscript class that writes to a file</p></em>
 
@@ -139,7 +177,7 @@
 				<a href="https://github.com/evrhel/lscript" target="null" class="body-list">GitHub Repository</a>
 			</div>
 
-			<h2>hexview</h2>
+			<h2 id="hexview">hexview</h2>
 
 			<div class="content">
 				<p>
@@ -162,9 +200,6 @@
 
 			<div class="content">
 				<ul style="margin-left: 35px;">
-					<li>
-						<a class="body-link" href="https://github.com/evrhel/mtgl" target="null">mtgl</a> - A C library for multithreaded OpenGL rendering.
-					</li>
 					<li>
 						<a class="body-link" href="https://github.com/evrhel/Java-BSP" target="null">Java-BSP</a> - A Java implementation of the Binary Space Partitioning algorithm.
 					</li>
