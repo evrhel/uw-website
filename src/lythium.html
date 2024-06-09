@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<title>Lythium</title>
+	</head>
+	<nav>
+		<ul>
+			<li><a href="index.html#top">Home</a></li>
+			<li><a href="index.html#projects">Projects</a></li>
+			<li><a href="index.html#contact">Contact</a></li>
+		</ul>
+	</nav>
+	<body>
+		<h1 id="top">Lithium</h1>
+		<h3>Directory</h3>
+		<p>
+			<a href="#about" class="body-link">&darr; About</a><br>
+		</p>
+
+		<h1 id="about">About</h1>
+		<div class="content">
+			<p><a href="#top" class="body-link">&uarr; Top</a></p>
+
+			<h2>General</h2>
+			<p>
+				Lythium is the 2D successor to Lithium. It comes packaged with a graphical editor and supports<br>
+				scripting in C++ or Lua. It is cross platform, supporting Windows, Mac and Linux.
+			</p>
+
+			<p><em>A screenshot of the editor.</em></p>
+
+			<p><img src="editor.png" width="40%"></p>			
+
+			<h2>Technical</h2>
+			<p>
+				<ul style="margin-left: 35px;">
+					<li>Runs on GPUs with at least OpenGL 4.1</li>
+					<li>Object batching</li>
+					<li>Texture atlas support</li>
+					<li>Efficient resource manager</li>
+					<li>C++ and Lua scripting API</li>
+				</ul>
+
+				<br>
+				<p>
+					The engine uses SDL 2, FMOD, RapidJSON, Lua, MatrixUtil, stb, ImGuiColorTextEdit,<br>
+					IconFontCppHeaders, glad, and clip as third party libraries.
+				</p>
+			</p>
+		</div>
+
+		<h1 id="examples">Examples</h1>
+		<div class="content">
+			<p><a href="#top" class="body-link">&uarr; Top</a></p>
+
+			<h3>Example Game Script</h3>
+
+				<p>
+					This script is an example of Lua scripting in Lythium. If the user presses the A key,<br>
+					it will log the position of the camera.
+				</p>
+
+				<em><code>test.lua</code></em><br><br>
+				<pre class="code">
+					<span class="tr first-row"><span class="th"></span><span class="keyword">local</span>&zwnj; Test = {}</span></span>
+					<span class="tr"><span class="th"></span>Test.prototype = {</span>
+					<span class="tr"><span class="th"></span>&zwnj;   lastDown = <span class="primitive">false</span></span>
+					<span class="tr"><span class="th"></span>}</span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="comment">-- Called every frame</span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">function</span>&zwnj; Test.prototype:<span class="function">update</span>()</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">-- Test if A key is pressed</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">local</span>&zwnj; keyDown = Input.<span class="function">getKey</span>(Key.A)</span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">if not self.</span>&zwnj;lastDown <span class="keyword">and</span>&zwnj; keyDown <span class="keyword">then</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;      <span class="comment">-- Find and log the camera's entity</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;      <span class="keyword">local</span>&zwnj; camera = <span class="keyword">self</span>&zwnj;.entity:<span class="function">find</span>(<span class="string">"Viewport"</span>&zwnj;):<span class="function">find</span>(<span class="string">"Camera"</span>&zwnj;)</span>
+					<span class="tr"><span class="th"></span>&zwnj;      Lythium.<span class="function">log</span>(camera.position)</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">end</span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">-- Save key state for next frame</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">self.</span>lastDown = keyDown</span>
+					<span class="tr"><span class="th"></span><span class="keyword">end</span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">return</span>&zwnj; Test</span>
+					<span class="tr"><span class="th"></span></span>
+				</pre>
+
+				<br>
+
+				<p>
+					A scripting doing the same thing as above, but in C++.
+				</p>
+
+				<em><code>test.cpp</code></em><br><br>
+				<pre class="code">
+					<span class="tr first-row"><span class="th"></span><span class="define">&#35;include</span>&zwnj; <span class="string">&lt;lythium.h&gt;</span></span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span><span class="comment">// Create behavior by deriving LyComponent, which are attachable to entities</span></span>
+					<span class="tr"><span class="th"></span><span class="keyword">class</span>&zwnj; <span class="type">Test</span> : <span class="keyword">public</span>&zwnj; <span class="type">LyComponent</span> {</span>
+					<span class="tr"><span class="th"></span><span class="keyword">public</span>:</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// Used for serialization</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">static constexpr</span>&zwnj; <span class="type">LySerialUID</span>&zwnj; SERIAL_UID = <span class="string">"Test"</span>;</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">static constexpr</span>&zwnj; <span class="type">LySerialUID</span>&zwnj; SERIAL_PARENT_UID = <span class="type">LyComponent</span>::SERIAL_UID;</span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="comment">// Called every frame</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">virtual void</span>&zwnj; <span class="function">update</span>() <span class="keyword">override</span>&zwnj; {</span>
+					<span class="tr"><span class="th"></span>&zwnj;      <span class="comment">// Test if A key is pressed</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;      <span class="keyword">bool</span>&zwnj; keyDown = <span class="function">lyGetKey</span>(<span class="macro">SDL_SCANCODE_A</span>);</span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span>&zwnj;      <span class="keyword">if</span>&zwnj; (!_lastDown && keyDown) {</span>
+					<span class="tr"><span class="th"></span>&zwnj;         <span class="comment">// Find and log the camera's entity</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;         <span class="type">LyEntity</span>&zwnj; *camera = <span class="function">lyGetScene</span>()-><span class="function">find</span>(<span class="string">"Viewport"</span>)-><span class="function">find</span>(<span class="string">"Camera"</span>);</span>
+					<span class="tr"><span class="th"></span>&zwnj;         <span class="type">Vector2</span>&zwnj; &amp;p = camera->transform.position;</span>
+					<span class="tr"><span class="th"></span>&zwnj;         <span class="function">lyLog</span>(<span class="string">"(%g, %g)"</span>, (<span class="keyword">double</span>)p.x, (<span class="keyword">double</span>)p.y);</span>
+					<span class="tr"><span class="th"></span>&zwnj;      }</span>
+					<span class="tr"><span class="th"></span></span>
+					<span class="tr"><span class="th"></span>&zwnj;      <span class="comment">// Save key state for next frame</span></span>
+					<span class="tr"><span class="th"></span>&zwnj;      _lastDown = keyDown;</span>
+					<span class="tr"><span class="th"></span>&zwnj;   }</span>
+					<span class="tr"><span class="th"></span><span class="keyword">private</span>:</span>
+					<span class="tr"><span class="th"></span>&zwnj;   <span class="keyword">bool</span>&zwnj; _lastDown = <span class="primitive">false</span>;</span>
+					<span class="tr"><span class="th"></span>}</span>
+					<span class="tr"><span class="th"></span></span>
+				</pre>
+		</div>
+
+		<h1 id="screenshots">Screenshots</h1>
+		<div class="content">
+			<p><a href="#top" class="body-link">&uarr; Top</a></p>
+			<p><em>Graphics debugger, tracking draw calls</em></p>
+			<p><img width="40%" height="40%" src="graphics_debugger.png"></p>
+			<p><em>The resource browser, with the context menu open</em></p>
+			<p><img width="40%" height="40%" src="resource_browser.png"></p>
+			<p><em>A nice Minecraft tree, with 73 different sprites, all done in 1 draw call.</em></p>
+			<p><img width="40%" height="40%" src="scene.png"></p>
+		</div>
+
+		<div>
+			<em><p style="text-align: center;">&copy; 2023 Ethan Vrhel</p></em>
+			<pre><p style="text-align: center;"><a class="body-link" href="https://github.com/evrhel/uw-website" target="null">view on github</a></p></pre>
+		</div>
+	</body>
+</html>
